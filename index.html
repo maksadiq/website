@@ -1,8 +1,30 @@
 <html>
 <head>
-<title> DevOps </title>
-</head>
-<body style = "background-image:url('images/github3.jpg'); background-size: 100%">
-<h2 ALIGN=CENTER>Today is Tuesday, Welcome to Today's Class of CI/CD </h2>
-</body>
+    <title>Live Clock</title>
+    <script>
+      function startTime() {
+        var today = new Date();
+        var hours = today.getHours();
+        var minutes = today.getMinutes();
+        var seconds = today.getSeconds();
+        hours = checkTime(hours);
+        minutes = checkTime(minutes);
+        seconds = checkTime(seconds);
+        document.getElementById("clock").innerHTML =
+          hours + ":" + minutes + ":" + seconds;
+        var t = setTimeout(startTime, 1000);
+      }
+
+      function checkTime(i) {
+        if (i < 10) {
+          i = "0" + i;
+        }
+        return i;
+      }
+    </script>
+  </head>
+  <body onload="startTime()">
+    <h1>Live Clock</h1>
+    <div id="clock"></div>
+  </body>
 </html>
