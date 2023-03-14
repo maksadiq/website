@@ -1,18 +1,24 @@
+<!DOCTYPE html>
 <html>
-<head>
-    <title>Live Clock</title>
-    <script >
-      function startTime() {
+  <head>
+    <title>Current Date and Time</title>
+    <script>
+      function displayDateTime() {
         var today = new Date();
+        var year = today.getFullYear();
+        var month = today.getMonth() + 1;
+        var day = today.getDate();
         var hours = today.getHours();
         var minutes = today.getMinutes();
         var seconds = today.getSeconds();
+        month = checkTime(month);
+        day = checkTime(day);
         hours = checkTime(hours);
         minutes = checkTime(minutes);
         seconds = checkTime(seconds);
-        document.getElementById("clock").innerHTML =
-          hours + ":" + minutes + ":" + seconds;
-        var t = setTimeout(startTime, 1000);
+        var dateTimeString =
+          year + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds;
+        document.getElementById("datetime").innerHTML = dateTimeString;
       }
 
       function checkTime(i) {
@@ -23,10 +29,8 @@
       }
     </script>
   </head>
-  <body onload="startTime()"; "Date()">
-    <h1 ALIGN=CENTER>KSA Time</h1>
-      
-    <div id="clock"></div>
-      
+  <body onload="displayDateTime()">
+    <h1>Current Date and Time</h1>
+    <div id="datetime"></div>
   </body>
 </html>
